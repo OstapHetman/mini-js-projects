@@ -38,6 +38,8 @@ function newTweet(event) {
   tweetList.appendChild(li);
 
   addTweetToLocalStorage(textareaValue);
+
+  this.reset();
 }
 
 // Remove Tweets From List
@@ -45,6 +47,9 @@ function removeTweet(event) {
   if (event.target.classList.contains("remove-tweet")) {
     event.target.parentElement.remove();
   }
+
+  // Remove From LS
+  removeFromLs(event.target.parentElement.textContent);
 }
 
 // Add To LocalStorage
@@ -89,4 +94,20 @@ function localStorageOnLoad() {
     // Add to the list
     tweetList.appendChild(li);
   });
+}
+
+// Remove Items From LS
+function removeFromLs(tweet) {
+  let tweets = getFromLs();
+
+  // Remove "X" from string
+  const tweetDelete = tweet.substring(0, tweet.length - 1);
+
+  tweets.forEach((tweetLs, index) => {
+    if (tweetDelete === tweetLs) {
+      tweets.splice(index, 1);
+    }
+  });
+
+  localStorage.setItem("tweets", JSON.stringify(tweets));
 }
