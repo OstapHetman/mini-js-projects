@@ -66,6 +66,29 @@ function addToCart(course) {
         </tr>
     `;
   shoppingCartContent.appendChild(row);
+
+  // Add Course to LS
+  saveToLs(course);
+}
+
+function saveToLs(course) {
+  let courses = getFromLs();
+
+  // Add Course to Array
+  courses.push(course);
+
+  localStorage.setItem("courses", JSON.stringify(courses));
+}
+
+function getFromLs() {
+  let courses;
+
+  if (localStorage.getItem("courses") === null) {
+    courses = [];
+  } else {
+    course = JSON.parse(localStorage.getItem("courses"));
+  }
+  return courses;
 }
 
 // Remove course from DOM
@@ -77,5 +100,9 @@ function removeCourse(e) {
 
 // Clear Shopping Cart
 function clearCart() {
-  shoppingCartContent.innerHTML = "";
+  //   shoppingCartContent.innerHTML = "";
+
+  while (shoppingCartContent.firstChild) {
+    shoppingCartContent.removeChild(shoppingCartContent.firstChild);
+  }
 }
