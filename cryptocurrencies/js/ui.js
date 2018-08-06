@@ -37,4 +37,9 @@ class UI {
       document.querySelector(".messages div").remove();
     }, 2000);
   }
+
+  // Print the result
+  displayResult(result) {
+    console.log(result);
+  }
 }
