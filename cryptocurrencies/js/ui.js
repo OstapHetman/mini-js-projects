@@ -39,7 +39,46 @@ class UI {
   }
 
   // Print the result
-  displayResult(result) {
-    console.log(result);
+  displayResult(result, currency) {
+    let template = "";
+    let currencyName;
+
+    currencyName = "price_" + currency.toLowerCase();
+    const value = result[currencyName];
+
+    const prevResult = document.querySelector("#result > div");
+
+    if (prevResult) {
+      prevResult.remove();
+    }
+
+    template += `
+    <div class="card cyan darken-3">
+        <div class="card-content white-text">
+            <span class="card-title">Result</span>
+            <p>The price of ${result.name} from ${currency} is ${value}</p>
+            <p>Last Hour: ${result.percent_change_1h} %</p>
+            <p>Last Day: ${result.percent_change_24h} %</p>
+            <p>Last 7 Days: ${result.percent_change_7d} %</p>
+
+        </div>
+    </div>
+    `;
+
+    this.showSpinner();
+
+    setTimeout(() => {
+      const divResult = document.querySelector("#result");
+      divResult.innerHTML = template;
+
+      document.querySelector(".spinner img").remove();
+    }, 2000);
+  }
+
+  // Show spinner
+  showSpinner() {
+    const spinnerGif = document.createElement("img");
+    spinnerGif.src = "img/spinner.gif";
+    document.querySelector(".spinner").appendChild(spinnerGif);
   }
 }
