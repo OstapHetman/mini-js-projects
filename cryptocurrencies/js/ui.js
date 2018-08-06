@@ -15,10 +15,26 @@ class UI {
       cryptoCurrencies.forEach(currency => {
         // add the <option>
         const option = document.createElement("option");
+
         option.value = currency.id;
         option.appendChild(document.createTextNode(currency.name));
         select.appendChild(option);
       });
     });
+  }
+
+  // Print a message
+  printMessage(msg, className) {
+    const div = document.createElement("div");
+    const msgDiv = document.querySelector(".messages");
+
+    div.className = className;
+    div.appendChild(document.createTextNode(msg));
+    msgDiv.appendChild(div);
+
+    // Remove msg
+    setTimeout(() => {
+      document.querySelector(".messages div").remove();
+    }, 2000);
   }
 }
