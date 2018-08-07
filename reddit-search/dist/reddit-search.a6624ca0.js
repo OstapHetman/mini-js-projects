@@ -103,7 +103,34 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"index.js":[function(require,module,exports) {
+})({"redditapi.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  search: function search(searchTerm, searchLimit, sortBy) {
+    return fetch("http://www.reddit.com/search.json?q=" + searchTerm + "&sort=" + sortBy + "&limit=" + searchLimit).then(function (res) {
+      return res.json();
+    }).then(function (data) {
+      return data.data.children.map(function (data) {
+        return data.data;
+      });
+    }).catch(function (err) {
+      return console.log(err);
+    });
+  }
+};
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _redditapi = require("./redditapi");
+
+var _redditapi2 = _interopRequireDefault(_redditapi);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var searchForm = document.getElementById("search-form");
 var searchInput = document.getElementById("search-input");
 
@@ -121,6 +148,12 @@ searchForm.addEventListener("submit", function (e) {
     // Show message
     showMessage("Please add a search term", "alert-danger");
   }
+
+  // Clear input
+  searchInput.value = "";
+
+  // Search Reddit
+  _redditapi2.default.search(searchTerm, searchLimit, sortBy);
 
   e.preventDefault();
 });
@@ -145,7 +178,7 @@ function showMessage(message, className) {
     document.querySelector(".alert").remove();
   }, 2000);
 }
-},{}],"..\\..\\..\\..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
+},{"./redditapi":"redditapi.js"}],"..\\..\\..\\..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
