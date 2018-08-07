@@ -1,0 +1,19 @@
+{
+  "name": "mini-js-projects",
+  "version": "1.0.0",
+  "description": "Reddit search app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OstapHetman/mini-js-projects.git"
+  },
+  "author": "Ostap Hetman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OstapHetman/mini-js-projects/issues"
+  },
+  "homepage": "https://github.com/OstapHetman/mini-js-projects#readme"
+}
