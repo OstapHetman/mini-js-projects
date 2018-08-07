@@ -104,7 +104,47 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"index.js":[function(require,module,exports) {
+var searchForm = document.getElementById("search-form");
+var searchInput = document.getElementById("search-input");
 
+// Form Event Listener
+searchForm.addEventListener("submit", function (e) {
+  // Get search term
+  var searchTerm = searchInput.value;
+  // Get sort
+  var sortBy = document.querySelector('input[name="sortby"]:checked').value;
+  // Get limit
+  var searchLimit = document.getElementById("limit").value;
+  //   console.log(searchLimit);
+  // Check input
+  if (searchTerm === "") {
+    // Show message
+    showMessage("Please add a search term", "alert-danger");
+  }
+
+  e.preventDefault();
+});
+
+// Show message
+function showMessage(message, className) {
+  // Create div
+  var div = document.createElement("div");
+  // Add classes
+  div.className = "alert " + className;
+  // Add text
+  div.appendChild(document.createTextNode(message));
+  // Get parent
+  var searchContainer = document.getElementById("search-container");
+  // Get search
+  var search = document.getElementById("search");
+  // Insert message
+  searchContainer.insertBefore(div, search);
+
+  // Timeout
+  setTimeout(function () {
+    document.querySelector(".alert").remove();
+  }, 2000);
+}
 },{}],"..\\..\\..\\..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -276,3 +316,4 @@ function hmrAccept(bundle, id) {
   });
 }
 },{}]},{},["..\\..\\..\\..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js","index.js"], null)
+//# sourceMappingURL=/reddit-search.a6624ca0.map
