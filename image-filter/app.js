@@ -42,6 +42,38 @@ document.addEventListener("click", e => {
       Caman("#canvas", img, function() {
         this.vibrance(-5).render();
       });
+    } else if (e.target.classList.contains("vintage-add")) {
+      Caman("#canvas", img, function() {
+        this.vintage().render();
+      });
+    } else if (e.target.classList.contains("lomo-add")) {
+      Caman("#canvas", img, function() {
+        this.lomo().render();
+      });
+    } else if (e.target.classList.contains("clarity-add")) {
+      Caman("#canvas", img, function() {
+        this.clarity().render();
+      });
+    } else if (e.target.classList.contains("sincity-add")) {
+      Caman("#canvas", img, function() {
+        this.sinCity().render();
+      });
+    } else if (e.target.classList.contains("crossprocess-add")) {
+      Caman("#canvas", img, function() {
+        this.crossProcess().render();
+      });
+    } else if (e.target.classList.contains("pinhole-add")) {
+      Caman("#canvas", img, function() {
+        this.pinhole().render();
+      });
+    } else if (e.target.classList.contains("nostalgia-add")) {
+      Caman("#canvas", img, function() {
+        this.nostalgia().render();
+      });
+    } else if (e.target.classList.contains("majesty-add")) {
+      Caman("#canvas", img, function() {
+        this.herMajesty().render();
+      });
     }
   }
 });
