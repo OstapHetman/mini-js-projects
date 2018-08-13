@@ -6,6 +6,13 @@ fill.addEventListener("dragstart", dragStart);
 fill.addEventListener("dragend", dragEnd);
 
 // Drag Functions
-function dragStart() {}
+function dragStart() {
+  this.className += " hold";
+  setTimeout(() => {
+    this.className = "invisible";
+  }, 0);
+}
 
-function dragEnd() {}
+function dragEnd() {
+  this.className = "fill";
+}
