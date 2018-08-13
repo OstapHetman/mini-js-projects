@@ -7,6 +7,45 @@ const revertBtn = document.getElementById("revert-btn");
 let img = new Image();
 let fileName = "";
 
+// Add filters & Effetcs
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("filter-btn")) {
+    if (e.target.classList.contains("brightness-add")) {
+      Caman("#canvas", img, function() {
+        this.brightness(5).render();
+      });
+    } else if (e.target.classList.contains("brightness-remove")) {
+      Caman("#canvas", img, function() {
+        this.brightness(-5).render();
+      });
+    } else if (e.target.classList.contains("contrast-add")) {
+      Caman("#canvas", img, function() {
+        this.contrast(5).render();
+      });
+    } else if (e.target.classList.contains("contrast-remove")) {
+      Caman("#canvas", img, function() {
+        this.contrast(-5).render();
+      });
+    } else if (e.target.classList.contains("saturation-add")) {
+      Caman("#canvas", img, function() {
+        this.saturation(5).render();
+      });
+    } else if (e.target.classList.contains("saturation-remove")) {
+      Caman("#canvas", img, function() {
+        this.saturation(-5).render();
+      });
+    } else if (e.target.classList.contains("vibrance-add")) {
+      Caman("#canvas", img, function() {
+        this.vibrance(5).render();
+      });
+    } else if (e.target.classList.contains("vibrance-remove")) {
+      Caman("#canvas", img, function() {
+        this.vibrance(-5).render();
+      });
+    }
+  }
+});
+
 //Upload File
 uploadFile.addEventListener("change", e => {
   // Get file
