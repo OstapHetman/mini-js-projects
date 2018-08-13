@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Firebase CRUD App</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-info">
+        <div class="container">
+            <a class="navbar-brand" href="#">Firebase CRUD</a>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="text-center mb-3">Users</h4>
+                <ul class="list-group" id="user-list">
+                    <li class="list-group-item">Cras justo odio</li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <h4 class="text-center mb-3">User Info</h4>
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="http://source.unsplash.com/random/150x150" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Name:
+                                    <span class="user-name"></span>
+                                </h5>
+                                <p class="card-text">Age:
+                                    <span class="user-age"></span>
+                                </p>
+                                <p class="card-text">Email:
+                                    <span class="user-email"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
