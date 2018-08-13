@@ -78,7 +78,14 @@ document.addEventListener("click", e => {
   }
 });
 
-//Upload File
+// Revert Filters
+revertBtn.addEventListener("click", e => {
+  Caman("#canvas", img, function() {
+    this.revert();
+  });
+});
+
+// Upload File
 uploadFile.addEventListener("change", e => {
   // Get file
   const file = document.getElementById("upload-file").files[0];
@@ -112,3 +119,33 @@ uploadFile.addEventListener("change", e => {
     );
   }
 });
+
+// Dowload Event
+downloadBtn.addEventListener("click", () => {
+  // Get file ext
+  const fileExtension = fileName.slice(-4);
+
+  // Init new file name
+  let newFileName;
+
+  // Check image  type
+  if (fileExtension === ".jpg" || fileExtension === ".png") {
+    newFileName = fileName.substring(0, fileName.length - 4) + "-edited.jpg";
+  }
+
+  // Call download
+  download(canvas, newFileName);
+});
+
+// Download Function
+function download(canvas, fileName) {
+  // Init event
+  let e;
+  // Create link
+  const link = document.createElement("a");
+  // Set props
+  link.download = fileName;
+  link.href = canvas.toDataURL("image/jpeg", 0.8);
+  e = new MouseEvent("click");
+  link.dispatchEvent(e);
+}
