@@ -11,29 +11,49 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-info">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">Firebase CRUD</a>
         </div>
     </nav>
-    <div class="container mt-5">
+    <div class="container my-5">
         <div class="row">
             <div class="col-md-4">
+                <div class="row my-5">
+                    <div class="col-md-12">
+                        <h4 class="text-center mb-3">Add new User</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter name" data-key='name'>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="text" class="form-control" id="age" placeholder="Enter age" data-key='age'>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" placeholder="Enter email" data-key='email'>
+                            </div>
+                            <button type="button" class="btn btn-primary d-block ml-auto" id="add-user-btn">Add User</button>
+                        </form>
+                    </div>
+                </div>
                 <h4 class="text-center mb-3">Users</h4>
                 <ul class="list-group" id="user-list">
                     <!-- <li class="list-group-item">Cras justo odio</li> -->
                 </ul>
+
             </div>
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-6 mx-auto">
                         <h4 class="text-center mb-3">User Info</h4>
                         <div class="card">
-                            <img class="card-img-top img-fluid" src="http://source.unsplash.com/random/150x150" alt="Card image cap">
                             <div class="card-body" id="user-detail">
-                                <h5 class="card-title">Name:
+                                <p class="card-title">Name:
                                     <span class="user-name"></span>
-                                </h5>
+                                </p>
                                 <p class="card-text">Age:
                                     <span class="user-age"></span>
                                 </p>
