@@ -1,0 +1,12 @@
+#user-list .list-group-item:hover {
+  cursor: pointer;
+  background-color: #cccccc;
+}
+#edit-user-module {
+  display: none;
+}
+
+#user-list .list-group-item {
+  display: flex;
+  justify-content: space-between;
+}

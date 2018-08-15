@@ -25,15 +25,15 @@
                         <form>
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter name" data-key='name'>
+                                <input type="text" class="form-control user-input" id="name" placeholder="Enter name" data-key='name'>
                             </div>
                             <div class="form-group">
                                 <label for="age">Age</label>
-                                <input type="text" class="form-control" id="age" placeholder="Enter age" data-key='age'>
+                                <input type="text" class="form-control user-input" id="age" placeholder="Enter age" data-key='age'>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Enter email" data-key='email'>
+                                <input type="text" class="form-control user-input" id="email" placeholder="Enter email" data-key='email'>
                             </div>
                             <button type="button" class="btn btn-primary d-block ml-auto" id="add-user-btn">Add User</button>
                         </form>
@@ -43,9 +43,8 @@
                 <ul class="list-group" id="user-list">
                     <!-- <li class="list-group-item">Cras justo odio</li> -->
                 </ul>
-
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 my-5">
                 <div class="row">
                     <div class="col-md-6 mx-auto">
                         <h4 class="text-center mb-3">User Info</h4>
@@ -62,6 +61,27 @@
                                 </p>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row" id="edit-user-module">
+                    <div class="col-md-8 mx-auto my-5">
+                        <h4 class="text-center mb-3">Edit User</h4>
+                        <form>
+                            <input type="hidden" class="edit-userid">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control edit-user-input" id="name" placeholder="Enter name" data-key='name'>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="text" class="form-control edit-user-input" id="age" placeholder="Enter age" data-key='age'>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control edit-user-input" id="email" placeholder="Enter email" data-key='email'>
+                            </div>
+                            <button type="button" class="btn btn-primary d-block ml-auto" id="edit-user-btn">Add User</button>
+                        </form>
                     </div>
                 </div>
             </div>

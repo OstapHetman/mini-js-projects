@@ -25,6 +25,15 @@ usersRef.on("child_added", snap => {
   li.addEventListener("click", userClicked);
   //   Get a DOM element reference for userList
   userListUI.append(li);
+
+  // edit icon
+  let editIconUI = document.createElement("span");
+  editIconUI.class = "edit-user";
+  editIconUI.innerHTML = " ✎";
+  editIconUI.setAttribute("userid", snap.key);
+  editIconUI.addEventListener("click", editButtonClicked);
+  // Append after li.innerHTML = value.name
+  li.append(editIconUI);
 });
 
 // Show User Detail on li click
@@ -47,9 +56,10 @@ const addUserBtnUI = document.getElementById("add-user-btn");
 addUserBtnUI.addEventListener("click", addUserBtnClicked);
 
 function addUserBtnClicked() {
+  // Create a new user Object
   const usersRef = dbRef.child("users");
   //  Get all the input fields from the Add User Form
-  const addUserInputsUI = document.getElementsByClassName("form-control");
+  const addUserInputsUI = document.getElementsByClassName("user-input");
 
   // this object will hold the new user information
   let newUser = {};
@@ -63,6 +73,28 @@ function addUserBtnClicked() {
 
   // Push to the Firebase Database
   usersRef.push(newUser, function() {
-    console.log("data has been inserted");
+    console.log("New User has been added");
+  });
+}
+
+function editButtonClicked() {
+  // show the Edit User Form
+  document.getElementById("edit-user-module").style.display = "block";
+
+  // set user id to the hidden input field
+  document.querySelector(".edit-userid").value = e.target.getAttribute(
+    "userid"
+  );
+
+  const userRef = dbRef.child("users/" + e.target.getAttribute("userid"));
+
+  // set data to the user field
+  const editUserInputsUI = document.querySelectorAll(".edit-user-input");
+
+  userRef.on("value", snap => {
+    for (var i = 0, len = editUserInputsUI.length; i < len; i++) {
+      var key = editUserInputsUI[i].getAttribute("data-key");
+      editUserInputsUI[i].value = snap.val()[key];
+    }
   });
 }
