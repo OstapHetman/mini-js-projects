@@ -2,3 +2,12 @@
   padding-left: 5px;
   font-weight: bold;
 }
+#cafe-list li {
+  display: flex;
+}
+#cafe-list li div {
+  margin-left: auto;
+}
+#cafe-list li div:hover {
+  cursor: pointer;
+}
