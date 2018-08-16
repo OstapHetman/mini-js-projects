@@ -14,6 +14,7 @@ db.settings({ timestampsInSnapshots: true });
 
 // Start coding
 const cafeList = document.querySelector("#cafe-list");
+const form = document.querySelector("#add-cafe-form");
 
 // Create element and render cafe
 function renderCafe(doc) {
@@ -32,6 +33,7 @@ function renderCafe(doc) {
   cafeList.appendChild(li);
 }
 
+// Getting Data
 db.collection("cafes")
   .get()
   .then(snapshot => {
@@ -40,3 +42,17 @@ db.collection("cafes")
       renderCafe(doc);
     });
   });
+
+// Saving Data
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  let name = form.querySelector("#name");
+  let city = form.querySelector("#city");
+
+  db.collection("cafes").add({
+    name: name.value,
+    city: city.value
+  });
+  name.value = "";
+  city.value = "";
+});
