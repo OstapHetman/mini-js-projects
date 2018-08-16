@@ -10,3 +10,4 @@
 5. **Findit** - Reddit Seacrh Api project [Webiste](https://ostaphetman.github.io/mini-js-projects/reddit-search/) | [Github](https://github.com/OstapHetman/mini-js-projects/tree/master/reddit-search)
 6. **Image Filter** [Webiste](https://ostaphetman.github.io/mini-js-projects/image-filter/) | [Github](https://github.com/OstapHetman/mini-js-projects/tree/master/image-filter)
 7. **Number Facts** - Fetch API project [Webiste](https://ostaphetman.github.io/mini-js-projects/number-facts/) | [Github](https://github.com/OstapHetman/mini-js-projects/tree/master/number-facts)
+8. **Cloud Cafe** - Get, Add, Delete Cafe to/from FireStore [Webiste](https://ostaphetman.github.io/mini-js-projects/reading-data-from-firebase/) | [Github](https://github.com/OstapHetman/mini-js-projects/tree/master/reading-data-from-firebase)
