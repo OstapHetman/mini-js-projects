@@ -16,26 +16,45 @@ export default {
   components: {
     PostPreview
   },
-  data() {
-    return {
-      posts: [
-        {
-          title: "Post One",
-          previewText: "This is a post One",
-          thumbnailUrl:
-            "https://images.pexels.com/photos/953213/pexels-photo-953213.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-          id: "post-one"
-        },
-        {
-          title: "Post Two",
-          previewText: "This is a post Two",
-          thumbnailUrl:
-            "https://images.pexels.com/photos/953213/pexels-photo-953213.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-          id: "post-two"
-        }
-      ]
-    };
+  asyncData(context) {
+    return context.app.$storyapi
+      .get("cdn/stories", {
+        version: "draft",
+        starts_with: "blog/"
+      })
+      .then(res => {
+        return {
+          posts: res.data.stories.map(blogPost => {
+            return {
+              id: blogPost.slug,
+              title: blogPost.content.title,
+              previewText: blogPost.content.excerpt,
+              thumbnailUrl: blogPost.content.thumbnail
+            };
+          })
+        };
+      });
   }
+  // data() {
+  //   return {
+  //     posts: [
+  //       {
+  //         title: "Post One",
+  //         previewText: "This is a post One",
+  //         thumbnailUrl:
+  //           "https://images.pexels.com/photos/953213/pexels-photo-953213.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  //         id: "post-one"
+  //       },
+  //       {
+  //         title: "Post Two",
+  //         previewText: "This is a post Two",
+  //         thumbnailUrl:
+  //           "https://images.pexels.com/photos/953213/pexels-photo-953213.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  //         id: "post-two"
+  //       }
+  //     ]
+  //   };
+  // }
 };
 </script>
 
