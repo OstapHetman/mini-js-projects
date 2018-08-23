@@ -34,23 +34,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      meetups: [
-        {
-          imageUrl:
-            "https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200",
-          id: "1",
-          title: "Meetup in New York"
-        },
-        {
-          imageUrl:
-            "https://www.parisperfect.com/blog/wp-content/uploads/2018/05/The-Best-Places-to-Eat-Outside-in-Paris-by-Paris-Perfect3.jpg",
-          id: "2",
-          title: "Meetup in Paris"
-        }
-      ]
-    };
+  computed: {
+    meetups() {
+      return this.$store.getters.featuredMeetups;
+    }
   },
   methods: {
     onLoadMeetup(id) {
