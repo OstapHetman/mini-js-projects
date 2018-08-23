@@ -2,7 +2,7 @@
   <v-app>
     <v-navigation-drawer temporary app v-model="sideNav">
       <v-list>
-        <v-list-tile v-for="el in menuItems" :key="el.title" router :to="el.link">
+        <v-list-tile v-for="el in menuItems" :key="el.title" :to="el.link">
           <v-list-tile-action>
             <v-icon>{{ el.icon }}</v-icon>
           </v-list-tile-action>
@@ -11,7 +11,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app dark class="deep-orange">
-      <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer">
          DevMeetup
@@ -19,7 +19,7 @@
       </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-xs-only">
-          <v-btn flat v-for="el in menuItems" :key="el.title" router :to="el.link">
+          <v-btn flat v-for="el in menuItems" :key="el.title" :to="el.link">
             <v-icon left>{{ el.icon }}</v-icon>
             {{ el.title }}
           </v-btn>
