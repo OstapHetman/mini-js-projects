@@ -75,7 +75,6 @@
                     <v-layout row class="mb-3">
                         <v-flex xs12 sm6 offset-sm3>
                             <v-date-picker v-model="date"></v-date-picker>
-                            {{ date }}
                         </v-flex>
                     </v-layout>
 
@@ -93,7 +92,6 @@
                             type="submit"
                             >
                             Create Meetup</v-btn>
-                            {{ submittableDateTime }}
                         </v-flex>
                     </v-layout>
                 </form>
