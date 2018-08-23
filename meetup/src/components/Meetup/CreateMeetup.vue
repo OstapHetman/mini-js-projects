@@ -55,15 +55,33 @@
 
                     <v-layout row>    
                         <v-flex xs12 sm6 offset-sm3>
-                            <v-text-field
+                            <v-textarea
                                 name="description"
                                 label="Description"
                                 required
-                                multi-line
                                 id="description"
                                 v-model="description"
                             >
-                            </v-text-field>
+                            </v-textarea>
+                        </v-flex>
+                    </v-layout>
+
+                    <v-layout row class="mb-3">
+                        <v-flex xs12 sm6 offset-sm3>
+                            <h2 class="deep-orange--text">Choose a Data & Time</h2>
+                        </v-flex>
+                    </v-layout>
+
+                    <v-layout row class="mb-3">
+                        <v-flex xs12 sm6 offset-sm3>
+                            <v-date-picker v-model="date"></v-date-picker>
+                            {{ date }}
+                        </v-flex>
+                    </v-layout>
+
+                    <v-layout row>
+                        <v-flex xs12 sm6 offset-sm3>
+                            <v-time-picker v-model="time" format="24hr"></v-time-picker>
                         </v-flex>
                     </v-layout>
 
@@ -75,6 +93,7 @@
                             type="submit"
                             >
                             Create Meetup</v-btn>
+                            {{ submittableDateTime }}
                         </v-flex>
                     </v-layout>
                 </form>
@@ -91,7 +110,9 @@ export default {
       title: "",
       location: "",
       imageUrl: "",
-      description: ""
+      description: "",
+      date: "",
+      time: new Date()
     };
   },
   computed: {
@@ -102,6 +123,20 @@ export default {
         this.imageUrl !== "" &&
         this.description !== ""
       );
+    },
+    submittableDateTime() {
+      const date = new Date(this.date);
+      if (typeof this.time === "string") {
+        const hours = this.time.match(/^(\d+)/)[1];
+        const minutes = this.time.match(/:(\d+)/)[1];
+        date.setHours(hours);
+        date.setMinutes(minutes);
+      } else {
+        date.setHours(this.time.getHours());
+        date.setMinutes(this.time.getMinutes());
+        console.log(date);
+      }
+      return date;
     }
   },
   methods: {
@@ -114,7 +149,7 @@ export default {
         location: this.location,
         imageUrl: this.imageUrl,
         description: this.description,
-        date: new Date()
+        date: this.submittableDateTime
       };
       this.$store.dispatch("createMeetup", meetupData);
       this.$router.push("/meetups");

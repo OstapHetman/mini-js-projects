@@ -11,14 +11,18 @@ export const store = new Vuex.Store({
           "https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200",
         id: "001",
         title: "Meetup in New York",
-        date: "2018-10-18"
+        date: "2018-10-18",
+        location: "New York",
+        description: "It is New York"
       },
       {
         imageUrl:
           "https://www.parisperfect.com/blog/wp-content/uploads/2018/05/The-Best-Places-to-Eat-Outside-in-Paris-by-Paris-Perfect3.jpg",
         id: "002",
         title: "Meetup in Paris",
-        date: "2018-11-18"
+        date: "2018-11-18",
+        location: "Paris",
+        description: "It is Paris"
       }
     ],
     user: {
