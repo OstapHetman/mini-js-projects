@@ -74,13 +74,13 @@
 
                     <v-layout row class="mb-3">
                         <v-flex xs12 sm6 offset-sm3>
-                            <v-date-picker v-model="date"></v-date-picker>
+                            <v-date-picker v-model="date" color="deep-orange lighten-2"></v-date-picker>
                         </v-flex>
                     </v-layout>
 
                     <v-layout row>
                         <v-flex xs12 sm6 offset-sm3>
-                            <v-time-picker v-model="time" format="24hr"></v-time-picker>
+                            <v-time-picker v-model="time" format="24hr" color="deep-orange lighten-2"></v-time-picker>
                         </v-flex>
                     </v-layout>
 

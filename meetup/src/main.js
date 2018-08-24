@@ -29,5 +29,6 @@ new Vue({
       storageBucket: "vuefs-dev-6560a.appspot.com",
       messagingSenderId: "331688615371"
     });
+    this.$store.dispatch("loadMeetups");
   }
 });
