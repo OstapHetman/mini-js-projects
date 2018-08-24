@@ -29,6 +29,11 @@ new Vue({
       storageBucket: "vuefs-dev-6560a.appspot.com",
       messagingSenderId: "331688615371"
     });
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.$store.dispatch("autoSignIn", user);
+      }
+    });
     this.$store.dispatch("loadMeetups");
   }
 });

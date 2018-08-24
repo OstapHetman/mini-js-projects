@@ -8,6 +8,13 @@
           </v-list-tile-action>
           <v-list-tile-content>{{ el.title }}</v-list-tile-content>
         </v-list-tile>
+
+        <v-list-tile v-if="userIsAuthenticated" @click="onLogout">
+          <v-list-tile-action>
+            <v-icon>exit_to_app</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>Logout</v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app dark class="deep-orange">
@@ -22,6 +29,11 @@
           <v-btn flat v-for="el in menuItems" :key="el.title" :to="el.link">
             <v-icon left>{{ el.icon }}</v-icon>
             {{ el.title }}
+          </v-btn>
+
+          <v-btn flat v-if="userIsAuthenticated" @click="onLogout">
+            <v-icon left>exit_to_app</v-icon>
+            Logout
           </v-btn>
         </v-toolbar-items>
     </v-toolbar>
@@ -41,9 +53,6 @@ export default {
   computed: {
     menuItems() {
       let menuItems = [
-        // { icon: "supervisor_account", title: "View Meetups", link: "/meetups" },
-        // { icon: "room", title: "Organize Meetup", link: "/meetup/new" },
-        // { icon: "person", title: "Profile", link: "/profile" },
         { icon: "face", title: "Sign Up", link: "/signup" },
         { icon: "lock_open", title: "Sign In", link: "/signin" }
       ];
@@ -65,6 +74,11 @@ export default {
         this.$store.getters.user !== null &&
         this.$store.getters.user !== undefined
       );
+    }
+  },
+  methods: {
+    onLogout() {
+      this.$store.dispatch("logout");
     }
   }
 };
