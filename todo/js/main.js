@@ -36,17 +36,23 @@ function fetchFromJson() {
   fetch("http://localhost:3000/todos")
     .then(response => response.json())
     .then(tasks => {
-      tasks.forEach(task => {
-        // console.log(task.title);
-        output += `
-        <li class="list-group-item d-flex justify-content-between align-items-center" data-id="${
-          task.id
-        }">
-        ${task.title}
-        <i class="far fa-trash-alt text-danger" style="cursor: pointer"></i>
-        </li>
+      console.log(tasks);
+      if (tasks.length == 0) {
+        output = `
+        <li class="list-group-item d-flex justify-content-between align-items-center text-danger">Nothing to-do</li>
         `;
-      });
+      } else {
+        tasks.forEach(task => {
+          output += `
+              <li class="list-group-item d-flex justify-content-between align-items-center" data-id="${
+                task.id
+              }">
+              ${task.title}
+              <i class="far fa-trash-alt text-danger" style="cursor: pointer"></i>
+              </li>
+              `;
+        });
+      }
       allTasks.innerHTML = output;
     })
     .catch(err => console.log(err));

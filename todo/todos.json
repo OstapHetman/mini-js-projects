@@ -1,16 +1,3 @@
 {
-  "todos": [
-    {
-      "title": "Somethind what i need to-do",
-      "id": 1
-    },
-    {
-      "title": "Somethind what i need to-do 2",
-      "id": 2
-    },
-    {
-      "title": "Somethind what i need to-do 3",
-      "id": 3
-    }
-  ]
+  "todos": []
 }
