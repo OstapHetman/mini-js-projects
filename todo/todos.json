@@ -1,11 +1,15 @@
 {
   "todos": [
     {
-      "title": "Somethind what i need to-do",
+      "title": "Crate Coffee Table",
       "id": 1
     },
     {
-      "title": "Somethind what i need to-do 3",
+      "title": "Learn JS",
+      "id": 2
+    },
+    {
+      "title": "Travel around the world",
       "id": 3
     }
   ]
