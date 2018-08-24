@@ -6,8 +6,10 @@ const allTasks = document.getElementById("list-group");
 // Events
 document.addEventListener("DOMContentLoaded", fetchFromJson);
 form.addEventListener("submit", formSubmitted);
+allTasks.addEventListener("click", removeItem);
 
 // Functions
+// Post
 function formSubmitted(e) {
   e.preventDefault();
   let data = {
@@ -31,12 +33,12 @@ function formSubmitted(e) {
     });
 }
 
+// Get
 function fetchFromJson() {
   let output = "";
   fetch("http://localhost:3000/todos")
     .then(response => response.json())
     .then(tasks => {
-      console.log(tasks);
       if (tasks.length == 0) {
         output = `
         <li class="list-group-item d-flex justify-content-between align-items-center text-danger">Nothing to-do</li>
@@ -56,4 +58,34 @@ function fetchFromJson() {
       allTasks.innerHTML = output;
     })
     .catch(err => console.log(err));
+}
+
+// Delete
+function removeItem(e) {
+  e.preventDefault();
+  let removeBtn = e.target.classList.contains("far");
+  let data = {
+    title: input.value
+  };
+  if (removeBtn) {
+    let id = e.target.parentElement.getAttribute("data-id");
+    e.target.parentElement.remove();
+    let options = {
+      method: "delete",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(data)
+    };
+    fetch(`http://localhost:3000/todos/${id}`, options)
+      .then(response => {
+        response.json;
+        console.log("Done...");
+      })
+      .catch(err => {
+        console.log(`[Err ${err}]`);
+      });
+    console.log("YES..");
+  }
 }
