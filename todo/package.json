@@ -1,0 +1,15 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "Simple ToDo manager usign Fetch API and JSON Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch todos.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ostap Hetman",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.14.0"
+  }
+}
