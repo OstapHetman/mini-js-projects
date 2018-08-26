@@ -32,33 +32,29 @@ function fetchFromJson() {
 
 setTimeout(function sorting() {
   let cols = document.querySelectorAll(".brand");
-  let options = select.querySelectorAll("option");
   let arr = [];
+  let attr = "";
 
-  cols.forEach(el => {
-    let attr = el.getAttribute("data-brand");
+  select.addEventListener("change", getSelectedBrand);
 
-    arr.push(attr);
-  });
+  function getSelectedBrand() {
+    let selectedBrand = this.value;
+    // if (selectedBrand == atrr) {
+    // console.log(attr);
+    cols.forEach(el => {
+      attr = el.getAttribute("data-brand");
+      if (selectedBrand == attr) {
+        console.log("Brand: " + selectedBrand);
+        console.log("Attr: " + attr);
+      }
+      arr.push(attr);
+    });
+    // }
 
-  select.addEventListener("change", function() {
-    // let a = e.target.querySelector("option");
-    // a.forEach(doc => {
-    console.log(this.value);
-    // });
-  });
-
-  //   options.forEach(el => {
-  //     // console.log(`[${el}]`);
-
-  //     el.addEventListener("click", e => {
-  //       console.log("e.target");
-  //     });
-  //   });
-
-  function a(element) {
-    return (element = "Audi");
+    // if (arr.indexOf(selectedBrand) != -1) {
+    //   console.log("YESS");
+    // } else {
+    //   console.log("NO");
+    // }
   }
-
-  //   console.log(arr.find(a));
 }, 1000);
