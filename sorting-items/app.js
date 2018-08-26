@@ -39,22 +39,17 @@ setTimeout(function sorting() {
 
   function getSelectedBrand() {
     let selectedBrand = this.value;
-    // if (selectedBrand == atrr) {
-    // console.log(attr);
     cols.forEach(el => {
       attr = el.getAttribute("data-brand");
-      if (selectedBrand == attr) {
-        console.log("Brand: " + selectedBrand);
-        console.log("Attr: " + attr);
+      if (attr !== selectedBrand) {
+        // console.log("Brand: " + selectedBrand);
+        // console.log("Attr: " + attr);
+        // return;
+        el.style.display = "none";
+      } else {
+        el.style.display = "block";
       }
       arr.push(attr);
     });
-    // }
-
-    // if (arr.indexOf(selectedBrand) != -1) {
-    //   console.log("YESS");
-    // } else {
-    //   console.log("NO");
-    // }
   }
 }, 1000);
