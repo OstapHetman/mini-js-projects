@@ -1,0 +1,15 @@
+{
+  "name": "sorting-items",
+  "version": "1.0.0",
+  "description": "Simple sorting items from <select>",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch db.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ostap Hetman",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.14.0"
+  }
+}

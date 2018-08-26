@@ -1,0 +1,32 @@
+{
+  "brands": [
+    {
+      "id": 1,
+      "brand": "Audi"
+    },
+    {
+      "id": 2,
+      "brand": "Mercedes"
+    },
+    {
+      "id": 3,
+      "brand": "Toyota"
+    },
+    {
+      "id": 4,
+      "brand": "Opel"
+    },
+    {
+      "id": 5,
+      "brand": "Nissan"
+    },
+    {
+      "id": 6,
+      "brand": "Renault"
+    },
+    {
+      "id": 7,
+      "brand": "Skoda"
+    }
+  ]
+}
