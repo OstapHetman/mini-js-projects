@@ -11,20 +11,25 @@ function fetchFromJson() {
   fetch("http://localhost:3000/brands")
     .then(response => response.json())
     .then(brands => {
+      let unique = [...new Set(brands.map(item => item.brand))];
       brands.forEach(brand => {
         output += `
             <div class="col-md-4 mb-3 brand ${brand.brand.toLowerCase()}" 
             data-brand="${brand.brand}">
                 <div class="border text-center">
                     <p class="mb-0" >${brand.brand}</p>
+                    <p class="mb-0" >${brand.year}</p>
                 </div>    
             </div>
         `;
+      });
+      unique.forEach(el => {
         let option = document.createElement("option");
-        option.value = brand.brand;
-        option.appendChild(document.createTextNode(brand.brand));
+        option.value = el;
+        option.appendChild(document.createTextNode(el));
         select.appendChild(option);
       });
+
       listItems.innerHTML = output;
     })
     .catch(err => console.log(err));
@@ -42,9 +47,6 @@ setTimeout(function sorting() {
     cols.forEach(el => {
       attr = el.getAttribute("data-brand");
       if (attr !== selectedBrand) {
-        // console.log("Brand: " + selectedBrand);
-        // console.log("Attr: " + attr);
-        // return;
         el.style.display = "none";
       } else {
         el.style.display = "block";
