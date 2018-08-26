@@ -17,6 +17,7 @@ function fetchFromJson() {
             <div class="col-md-4 mb-3 brand ${brand.brand.toLowerCase()}" 
             data-brand="${brand.brand}">
                 <div class="border text-center">
+                    <img width=250 height=200 src="${brand.engine}">
                     <p class="mb-0" >${brand.brand}</p>
                     <p class="mb-0" >${brand.year}</p>
                 </div>    
@@ -37,7 +38,6 @@ function fetchFromJson() {
 
 setTimeout(function sorting() {
   let cols = document.querySelectorAll(".brand");
-  let arr = [];
   let attr = "";
 
   select.addEventListener("change", getSelectedBrand);
@@ -51,7 +51,9 @@ setTimeout(function sorting() {
       } else {
         el.style.display = "block";
       }
-      arr.push(attr);
+      if (selectedBrand == "all") {
+        el.style.display = "block";
+      }
     });
   }
-}, 1000);
+}, 500);
