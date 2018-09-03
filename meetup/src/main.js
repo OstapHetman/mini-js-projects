@@ -10,6 +10,7 @@ import Alert from "./components/Shared/Alert";
 import EditMeetupDialog from "./components/Meetup/Edit/EditMeetupDialog";
 import EditMeetupDateDialog from "./components/Meetup/Edit/EditMeetupDateDialog";
 import EditMeetupTimeDialog from "./components/Meetup/Edit/EditMeetupTimeDialog";
+import RegisterDialog from "./components/Meetup/Registration/RegisterDialog";
 
 Vue.use(Vuetify);
 
@@ -20,6 +21,7 @@ Vue.component("app-alert", Alert);
 Vue.component("app-edit-modal", EditMeetupDialog);
 Vue.component("app-edit-date-modal", EditMeetupDateDialog);
 Vue.component("app-edit-time-modal", EditMeetupTimeDialog);
+Vue.component("app-meetup-register-modal", RegisterDialog);
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
