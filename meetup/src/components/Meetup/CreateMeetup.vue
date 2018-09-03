@@ -132,7 +132,6 @@ export default {
       } else {
         date.setHours(this.time.getHours());
         date.setMinutes(this.time.getMinutes());
-        console.log(date);
       }
       return date;
     }

@@ -9,6 +9,7 @@ import DateFilter from "./filters/date";
 import Alert from "./components/Shared/Alert";
 import EditMeetupDialog from "./components/Meetup/Edit/EditMeetupDialog";
 import EditMeetupDateDialog from "./components/Meetup/Edit/EditMeetupDateDialog";
+import EditMeetupTimeDialog from "./components/Meetup/Edit/EditMeetupTimeDialog";
 
 Vue.use(Vuetify);
 
@@ -18,6 +19,7 @@ Vue.filter("date", DateFilter);
 Vue.component("app-alert", Alert);
 Vue.component("app-edit-modal", EditMeetupDialog);
 Vue.component("app-edit-date-modal", EditMeetupDateDialog);
+Vue.component("app-edit-time-modal", EditMeetupTimeDialog);
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
