@@ -63,8 +63,7 @@ export default {
             title: "View Meetups",
             link: "/meetups"
           },
-          { icon: "room", title: "Organize Meetup", link: "/meetup/new" },
-          { icon: "person", title: "Profile", link: "/profile" }
+          { icon: "room", title: "Organize Meetup", link: "/meetup/new" }
         ];
       }
       return menuItems;
