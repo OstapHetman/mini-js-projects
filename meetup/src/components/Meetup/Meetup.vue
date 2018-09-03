@@ -36,7 +36,10 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <app-meetup-register-modal :meetupId="meetup.id">
+                        <app-meetup-register-modal 
+                        :meetupId="meetup.id"
+                        v-if="userIsAuthenticated"
+                        >
                         </app-meetup-register-modal>   
                     </v-card-actions>
                 </v-card>

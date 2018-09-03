@@ -273,6 +273,33 @@ export const store = new Vuex.Store({
           console.log(error);
         });
     },
+    fetchUserData({ commit, getters }) {
+      commit("setLoading", true);
+      firebase
+        .database()
+        .ref("/users/" + getters.user.id + "/registrations/")
+        .once("value")
+        .then(data => {
+          const dataPairs = data.val();
+          let registeredMeetups = [];
+          let swappedPairs = {};
+          for (let key in dataPairs) {
+            registeredMeetups.push(dataPairs[key]);
+            swappedPairs[dataPairs[key]] = key;
+          }
+          const updatedUser = {
+            id: getters.user.id,
+            registeredMeetups: registeredMeetups,
+            fbKeys: swappedPairs
+          };
+          commit("setLoading", false);
+          commit("setUser", updatedUser);
+        })
+        .catch(err => {
+          console.log(err);
+          commit("setLoading", false);
+        });
+    },
     autoSignIn({ commit }, payload) {
       commit("setUser", { id: payload.uid, registeredMeetups: [], fbKeys: {} });
     },
