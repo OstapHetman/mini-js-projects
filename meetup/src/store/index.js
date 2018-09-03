@@ -93,7 +93,7 @@ export const store = new Vuex.Store({
         .ref("meetups")
         .push(meetup)
         .then(data => {
-          const key = data.key;
+          key = data.key;
           return key;
         })
         .then(key => {
@@ -105,11 +105,15 @@ export const store = new Vuex.Store({
             .put(payload.image);
         })
         .then(fileData => {
-          fileData
-            .ref("meetups/")
+          let imagePath = fileData.metadata.fullPath;
+          return firebase
+            .storage()
+            .ref()
+            .child(imagePath)
             .getDownloadURL()
             .then(url => {
               imageUrl = url;
+              console.log("File available at", url);
               return firebase
                 .database()
                 .ref("meetups")
