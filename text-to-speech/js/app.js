@@ -49,24 +49,39 @@ const speak = () => {
     speakText.onend = e => {
       console.log("DONE speaking...");
     };
+    // Speak error
+    speakText.onerror = e => {
+      console.error("Something went wrong");
+    };
+    // Selected voice
+    const selectedVoice = voiceSelect.selectedOptions[0].getAttribute(
+      "data-name"
+    );
+    // Loop through voices
+    voices.forEach(voice => {
+      if (voice.name === selectedVoice) {
+        speakText.voice = voice;
+      }
+    });
+    // Set pitch and rate
+    speakText.rate = rate.value;
+    speakText.pitch = pitch.value;
+    // Speak
+    synth.speak(speakText);
   }
-  // Speak error
-  speakText.onerror = e => {
-    console.error("Something went wrong");
-  };
-  // Selected voice
-  const selectedVoice = voiceSelect.selectedOptions[0].getAttribute(
-    "data-name"
-  );
-  // Loop through voices
-  voices.forEach(voice => {
-    if (voice.name === selectedVoice) {
-      speakText.voice = voice;
-    }
-  });
-  // Set pitch and rate
-  speakText.rate = rate.value;
-  speakText.pitch = pitch.value;
-  // Speak
-  synth.speak(speakText);
 };
+
+// Events
+// Text form submit
+textForm.addEventListener("submit", e => {
+  e.preventDefault();
+  speak();
+  textInput.blur();
+});
+
+// Rate value change
+rate.addEventListener("change", e => (rateValue.textContent = rate.value));
+pitch.addEventListener("change", e => (pitchValue.textContent = pitch.value));
+
+// Voice select change
+voiceSelect.addEventListener("change", e => speak());
