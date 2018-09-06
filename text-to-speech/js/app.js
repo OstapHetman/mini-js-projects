@@ -43,11 +43,16 @@ const speak = () => {
     return;
   }
   if (textInput.value !== "") {
+    // Add bg animation
+    body.style.background = "url(img/wave.gif)";
+    body.style.backgroundRepeat = "repeat-x";
+    body.style.backgroundSize = "100% 100%";
     // Get speak text
     const speakText = new SpeechSynthesisUtterance(textInput.value);
     // Speak end
     speakText.onend = e => {
       console.log("DONE speaking...");
+      body.style.background = "#141414";
     };
     // Speak error
     speakText.onerror = e => {
