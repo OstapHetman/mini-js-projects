@@ -1,4 +1,5 @@
 import fetchJsonp from "fetch-jsonp";
+import { isValidZip, showAlert } from "./validate";
 
 const petForm = document.querySelector("#pet-form");
 
@@ -11,6 +12,12 @@ function fetchAnimals(e) {
   // Get User input
   const animal = document.querySelector("#animal").value;
   const zip = document.querySelector("#zip").value;
+
+  // Validate Zip
+  if (!isValidZip(zip)) {
+    showAlert("Please Enter a Valid Zipcode", "danger");
+    return;
+  }
 
   // Fetch Pets
   fetchJsonp(
