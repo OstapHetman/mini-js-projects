@@ -49,7 +49,9 @@ function showAnimals(pets) {
     div.innerHTML = `
         <div class="row">
             <div class="col-sm-6">
-                <h4>${pet.name.$t} (${pet.age.$t})</h4>
+                <h4>${pet.name.$t} (${
+      pet.age.$t
+    }, <small class="text-muted">Sex: ${pet.sex.$t}</small>)</h4>
                 <p class="text-secondary">${pet.breeds.breed.$t}</p>
                 <p>
                 ${pet.contact.address1.$t} ${pet.contact.city.$t}
@@ -69,6 +71,7 @@ function showAnimals(pets) {
                     <li class="list-group-item">Shelter ID: ${
                       pet.shelterId.$t
                     }</li>
+                    
                 </ul>
             </div>
             <div class="col-sm-6 text-center">

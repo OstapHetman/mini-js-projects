@@ -23,9 +23,11 @@
                     <option value="dog">Dog</option>
                     <option value="bird">Bird</option>
                     <option value="rabbit">Rabbit</option>
-                    <option value="horses">Horses</option>
+                    <option value="horse">Horses</option>
                 </select>
-                <input type="text" class="input form-control form-control-lg" id="zip" placeholder="Enter your zipcode">
+                <input type="text" class="input form-control form-control-lg" id="zip" placeholder="Enter your zipcode" aria-describedby="help">
+                <small id="help" class="form-text text-muted">ZIP/postal code where the animal should be located
+                    (example: 90210)</small>
                 <input type="submit" value="Find" class="btn btn-dark btn-lg btn-block mt-3">
             </div>
         </form>
