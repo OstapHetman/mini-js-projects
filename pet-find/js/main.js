@@ -64,7 +64,10 @@ function showAnimals(pets) {
                     }</li>
                 </ul>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 text-center">
+                  <img class="img-fluid rounded-circle mt-2" src="${
+                    pet.media.photos.photo[3].$t
+                  }">  
             </div>
         </div>
     `;
