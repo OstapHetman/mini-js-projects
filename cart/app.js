@@ -10,34 +10,47 @@ const plus = document.querySelectorAll("span.plus");
 const minus = document.querySelectorAll("span.minus");
 let counter = 1;
 
-plus.forEach((el, index) => {
-  el.setAttribute("data-index", `${index}`);
-  el.setAttribute("data-counter", `${counter}`);
-});
 numberInputs.forEach((el, index) => {
-  el.setAttribute("data-index", `${index}`);
-  el.setAttribute("data-counter", `${counter}`);
+  el.parentElement.setAttribute("data-index", `${index}`);
+  el.parentElement.setAttribute("data-counter", `${counter}`);
 });
+
+// Increment
 plus.forEach(el => {
-  el.addEventListener("click", () => {
-    let plusAttr = el.getAttribute("data-index");
-    let inputAttr = numberInput.getAttribute("data-index");
+  el.addEventListener("click", event => {
+    let plusAttr = el.parentElement.getAttribute("data-index");
+
     numberInputs.forEach(numberInput => {
+      let inputAttr = numberInput.parentElement.getAttribute("data-index");
       if (plusAttr == inputAttr) {
-        counter = el.getAttribute("data-counter");
+        // counter = 1
+        counter = el.parentElement.getAttribute("data-counter");
+        console.log(event.target.parentElement);
+        // increment counter
         numberInput.value = ++counter;
-        el.setAttribute("data-counter", `${counter}`);
+        // increment counter and set to data-attribute
+        el.parentElement.setAttribute("data-counter", `${counter}`);
       }
     });
   });
 });
 
+// Decrement
 minus.forEach(el => {
+  let minusAttr = el.parentElement.getAttribute("data-index");
   el.addEventListener("click", () => {
-    if (counter > 1) {
-      numberInput.value = --counter;
-    } else {
-      return false;
-    }
+    numberInputs.forEach(numberInput => {
+      let inputAttr = numberInput.parentElement.getAttribute("data-index");
+      if (counter > 1) {
+        if (minusAttr == inputAttr) {
+          // increment counter
+          numberInput.value = --counter;
+          // increment counter and set to data-attribute
+          el.parentElement.setAttribute("data-counter", `${counter}`);
+        }
+      } else {
+        return false;
+      }
+    });
   });
 });
