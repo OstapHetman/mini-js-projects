@@ -1,4 +1,4 @@
-export const storeToLocalStorage = product => {
+export const addToLocalStorage = product => {
   let products;
   if (localStorage.getItem("products") === null) {
     products = [];

@@ -9,6 +9,25 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
     <title>Cart</title>
+
+    <style>
+        input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        input[type="number"] {
+            text-align: center;
+        }
+        span.minus:hover, span.plus:hover {
+            cursor: pointer;
+        }
+        span.minus, span.plus {
+            font-size: 24px;
+        }
+    </style>
 </head>
 
 <body>
@@ -53,7 +72,11 @@
                             <h5 class="text-center text-warning">199 UAH</h5>
                         </div>
                         <div class="product-item-action d-flex flex-wrap justify-content-center">
-                            <a href="#" class="btn w-100 btn-info mb-2">View Product</a>
+                            <div class="form-group d-flex justify-content-center align-items-center">
+                                <span class="minus d-block p-3 font-weight-bold">-</span>
+                                <input type="number" class="form-control w-50" min="1" max="100" value="1">
+                                <span class="plus d-block p-3 font-weight-bold">+</span>
+                            </div>
                             <a href="#" class="btn w-100 btn-danger add-to-cart-btn" data-productName="Product_1"
                                 data-productPrice="199">Add to cart</a>
                         </div>
@@ -71,7 +94,11 @@
                             <h5 class="text-center text-warning">399 UAH</h5>
                         </div>
                         <div class="product-item-action d-flex flex-wrap justify-content-center">
-                            <a href="#" class="btn w-100 btn-info mb-2">View Product</a>
+                            <div class="form-group d-flex justify-content-center align-items-center">
+                                <span class="minus d-block p-3 font-weight-bold">-</span>
+                                <input type="number" class="form-control w-50" min="1" max="100" value="1">
+                                <span class="plus d-block p-3 font-weight-bold">+</span>
+                            </div>
                             <a href="#" class="btn w-100 btn-danger add-to-cart-btn" data-productName="Product_2"
                                 data-productPrice="399">Add to cart</a>
                         </div>
@@ -89,7 +116,11 @@
                             <h5 class="text-center text-warning">749 UAH</h5>
                         </div>
                         <div class="product-item-action d-flex flex-wrap justify-content-center">
-                            <a href="#" class="btn w-100 btn-info mb-2">View Product</a>
+                            <div class="form-group d-flex justify-content-center align-items-center">
+                                <span class="minus d-block p-3 font-weight-bold">-</span>
+                                <input type="number" class="form-control w-50" min="1" max="100" value="1">
+                                <span class="plus d-block p-3 font-weight-bold">+</span>
+                            </div>
                             <a href="#" class="btn w-100 btn-danger add-to-cart-btn" data-productName="Product_3"
                                 data-productPrice="749">Add to cart</a>
                         </div>
@@ -107,7 +138,11 @@
                             <h5 class="text-center text-warning">567 UAH</h5>
                         </div>
                         <div class="product-item-action d-flex flex-wrap justify-content-center">
-                            <a href="#" class="btn w-100 btn-info mb-2">View Product</a>
+                            <div class="form-group d-flex justify-content-center align-items-center">
+                                <span class="minus d-block p-3 font-weight-bold">-</span>
+                                <input type="number" class="form-control w-50" min="1" max="100" value="1">
+                                <span class="plus d-block p-3 font-weight-bold">+</span>
+                            </div>
                             <a href="#" class="btn w-100 btn-danger add-to-cart-btn" data-productName="Product_4"
                                 data-productPrice="467">Add to cart</a>
                         </div>
@@ -125,7 +160,11 @@
                             <h5 class="text-center text-warning">0.99 UAH</h5>
                         </div>
                         <div class="product-item-action d-flex flex-wrap justify-content-center">
-                            <a href="#" class="btn w-100 btn-info mb-2">View Product</a>
+                            <div class="form-group d-flex justify-content-center align-items-center">
+                                <span class="minus d-block p-3 font-weight-bold">-</span>
+                                <input type="number" class="form-control w-50" min="1" max="100" value="1">
+                                <span class="plus d-block p-3 font-weight-bold">+</span>
+                            </div>
                             <a href="#" class="btn w-100 btn-danger add-to-cart-btn" data-productName="Product_5"
                                 data-productPrice="0.99">Add to cart</a>
                         </div>

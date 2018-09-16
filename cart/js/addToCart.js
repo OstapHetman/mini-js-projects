@@ -1,7 +1,6 @@
-import { storeToLocalStorage } from "./localStorage.js";
+import { addToLocalStorage } from "./addToLocalStorage.js";
 
 export const addToCart = () => {
-  const productCounter = document.querySelector("#counter");
   const addBtns = document.querySelectorAll(".add-to-cart-btn");
   let counter = 0;
 
@@ -12,8 +11,8 @@ export const addToCart = () => {
       const productPrice = event.target.getAttribute("data-productPrice");
       counter++;
 
-      storeToLocalStorage(counter);
-      productCounter.innerHTML = counter;
+      addToLocalStorage(counter);
+
       // console.log(`${productName}, ${productPrice}`);
     });
   });
