@@ -3,7 +3,9 @@ new Vue({
   data: {
     ranks: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
     suits: ["♥", "♦", "♠", "♣"],
-    cards: []
+    cards: [],
+    shuffleSpeed: "shuffleMedium",
+    shuffleTypes: ["Slow", "Medium", "Fast"]
   },
   created() {
     this.displayInitialDeck();
@@ -30,8 +32,6 @@ new Vue({
         let randomIndex = Math.floor(Math.random() * i);
 
         let temp = this.cards[i];
-        this.cards[i] = this.cards[randomIndex];
-        this.cards[randomIndex] = temp;
         Vue.set(this.cards, i, this.cards[randomIndex]);
         Vue.set(this.cards, randomIndex, temp);
       }
