@@ -16,15 +16,17 @@
             Card Shuffling
         </h1>
         <div class="deck">
-            <div class="card">
-                <span class="card__suit card__suit--top">♣</span>
-                <span class="card__number">A</span>
-                <span class="card__suit card__suit--bottom">♣</span>
+            <div class="card" v-for="card in cards" :key="card.id" :class="{ 'black': card.suit === '♠' || card.suit ===  '♣',
+            'red': card.suit === '♥' || card.suit ===  '♦' }">
+                <span class="card__suit card__suit--top">{{ card.suit }}</span>
+                <span class="card__number">{{ card.rank }}</span>
+                <span class="card__suit card__suit--bottom">{{ card.suit }}</span>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
