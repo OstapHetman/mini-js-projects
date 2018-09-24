@@ -2,6 +2,7 @@
 const courses = document.querySelector("#courses-list"),
   shoppingCartContent = document.querySelector("#cart-content tbody"),
   clearCartBtn = document.querySelector("#clear-cart");
+let counter = document.querySelector("#counter");
 
 // Listeners
 
@@ -81,6 +82,8 @@ function saveIntoStorage(course) {
 
   // since storage only saves strings, we need to convert JSON into String
   localStorage.setItem("courses", JSON.stringify(courses));
+  let coursesQuantity = courses.length;
+  counter.innerHTML = coursesQuantity;
 }
 
 // Get the contents from storage
@@ -106,7 +109,6 @@ function removeCourse(e) {
     course = e.target.parentElement.parentElement;
     courseId = course.querySelector("a").getAttribute("data-id");
   }
-  console.log(courseId);
   // remove from the local storage
   removeCourseLocalStorage(courseId);
 }
@@ -124,6 +126,7 @@ function removeCourseLocalStorage(id) {
 
   // Add the rest of the array
   localStorage.setItem("courses", JSON.stringify(coursesLS));
+  counter.innerHTML = coursesLS.length;
 }
 
 // Clears the shopping cart
@@ -136,6 +139,7 @@ function clearCart() {
 
   // Clear from Local Storage
   clearLocalStorage();
+  counter.innerHTML = "0";
 }
 // Clears the whole local storage
 function clearLocalStorage() {
