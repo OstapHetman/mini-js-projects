@@ -17,3 +17,5 @@
 12. **DevMeetup** - A full project using Vue.js, Vuetify and Firebase [Screenshots](https://github.com/OstapHetman/mini-js-projects/tree/master/meetup/screenshots) | [Github](https://github.com/OstapHetman/mini-js-projects/tree/master/meetup)
 13. **Type-N-Speak** - A text synthesis application using vanilla JavaScript and the web speech API [Website](https://ostaphetman.github.io/mini-js-projects/text-to-speech/) | [Github](https://github.com/OstapHetman/mini-js-projects/tree/master/text-to-speech)
 14. **My Conatcts** - A Filterable List With Vanilla JavaScript [Website](https://ostaphetman.github.io/mini-js-projects/filterable-list/) | [Github](https://github.com/OstapHetman/mini-js-projects/tree/master/filterable-list)
+15. **Find-A-Pet** - An app using vanilla javascript and babel [Website](https://elated-perlman-b6408d.netlify.com/) | [Github](https://github.com/OstapHetman/mini-js-projects/tree/master/pet-find)
+16. **Comming Soon Page** - Comming Soon with Vanilla JavaScript [Website](https://confident-heyrovsky-b21c7c.netlify.com/) | [Github](https://github.com/OstapHetman/mini-js-projects/tree/master/comming-soon)
