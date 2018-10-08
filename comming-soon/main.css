@@ -27,6 +27,10 @@ main .counter p {
   font-weight: bold;
   text-align: center;
 }
+main .counter .time-box {
+  position: relative;
+}
+
 main form input.form-control {
   background-color: transparent;
   border: unset;
